@@ -1,6 +1,7 @@
-<p>list works!</p>
-<div *ngFor="let cat of cats.images">
-  <h2>{{cat.id}}</h2>
+<h1 class="center">Ranking of the most popular cats <a class="paper-btn btn-warning btn-large" routerLink="/">Vote here!</a></h1>
 
-    <img class="cat-photo" src={{cat.url}}/>
+<div *ngFor="let cat of cats" class="row flex-spaces flex-middle half">
+  <img class="cat-photo" src={{cat.url}}/>
+  <p class="rank">- - - - - - - - - - -</p>
+  <p class="badge rank">{{cat.ranking}}</p>
 </div>
