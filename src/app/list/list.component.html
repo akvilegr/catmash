@@ -1,7 +1,7 @@
 <h1 class="center">Ranking of the most popular cats <a class="paper-btn btn-warning btn-large" routerLink="/">Vote here!</a></h1>
 
-<div *ngFor="let cat of cats" class="row flex-spaces flex-middle half">
+<div *ngFor="let cat of cats" class="row flex-spaces flex-middle list-width">
   <img class="cat-photo" src={{cat.url}}/>
-  <p class="rank">- - - - - - - - - - -</p>
-  <p class="badge rank">{{cat.ranking}}</p>
+  <p class="rating">- - - - - - - - </p>
+  <p class="badge rating">{{cat.rating}}</p>
 </div>

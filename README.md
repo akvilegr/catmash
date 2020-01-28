@@ -1,5 +1,8 @@
 # Catmash
 
+Front-end exercise made with Angular 8 and [PaperCSS](https://www.getpapercss.com/) and deployed on Firebase.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
 ## Development server

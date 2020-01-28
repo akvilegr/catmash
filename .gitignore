@@ -47,4 +47,13 @@ Thumbs.db
 
 # Firebase config
 /src/environments/**
+database.rules.json
+firebase.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+.firebase/*
+/functions
+.firebaserc
+
 

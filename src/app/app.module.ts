@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { VotingComponent } from './voting/voting.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

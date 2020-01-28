@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Cat } from './cat';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +11,14 @@ export class FirebaseService {
   constructor(private firestore: AngularFirestore) {
    }
 
-   getRankedCats() {
-     return this.firestore.collection('cats', ref => ref.orderBy('ranking', 'desc')).valueChanges();
+   getCats() {
+     return this.firestore.collection('cats', ref => ref.orderBy('rating', 'desc')).snapshotChanges()
+     .pipe(
+      map(actions => actions.map(a => ({ ...a.payload.doc.data(), id: a.payload.doc.id })))
+    );
    }
 
-   createRankedCat(rankedCat: Cat) {
-     return this.firestore.collection('cats').add(rankedCat);
-   }
-
-   updateRankedCat(rankedCat: Cat) {
-    delete rankedCat.id;
-    this.firestore.doc('cats/' + rankedCat.id).update(rankedCat);
+   updateCat(id: string, payload: object) {
+    this.firestore.doc('cats/' + id).update(payload);
    }
 }

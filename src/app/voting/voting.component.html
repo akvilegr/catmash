@@ -1,9 +1,15 @@
-
-<div>
-<p>voting works!</p>
-
-
-<div>
-<a class="paper-btn btn-warning btn-large" routerLink="/ranking">The most popular cats</a>
+<div class="row flex-spaces voting-block">
+  <div>
+    <img [ngClass]="{'shadow shadow-large shadow-hover': image1Shadow}" src={{contestant1.url}}
+      style="height: 15rem" title="Vote for me!" (mouseover)='image1Shadow=true' (mouseout)="image1Shadow=false"
+      (click)="vote(contestant1)" />
+  </div>
+  <div>
+    <img [ngClass]="{'shadow shadow-large shadow-hover': image2Shadow}" src={{contestant2.url}}
+      style="height: 15rem" title="Vote for me!" (mouseover)='image2Shadow=true' (mouseout)="image2Shadow=false"
+      (click)="vote(contestant2)" />
+  </div>
 </div>
+<div class="row flex-center">
+  <a class="paper-btn btn-warning btn-large" routerLink="/ranking">The most popular cats</a>
 </div>

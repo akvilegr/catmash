@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { CatsService } from '../cats.service';
-
 import { FirebaseService } from '../firebase.service';
-
-import { Cat } from '../cat';
 
 @Component({
   selector: 'app-list',
@@ -13,22 +8,14 @@ import { Cat } from '../cat';
 })
 export class ListComponent implements OnInit {
 
-  cats;
+  cats = [];
 
-  constructor(private catsService: CatsService, private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-
-    /* this.catsService.getCats().subscribe((data) => {
-      console.log('data', data);
-      this.cats = data;
-      console.log(this.cats);
-    }); */
-
-    this.firebaseService.getRankedCats().subscribe(data => {
-      console.log("firebase data", data);
-      this.cats = data;
+    this.firebaseService.getCats().subscribe(result => {
+      this.cats = result;
     });
-  }
 
+  }
 }
